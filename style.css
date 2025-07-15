@@ -1,0 +1,242 @@
+/* Fondo animado estilo galáctico */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1a1a1a 0%, #000 100%);
+  background-size: cover;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.05;
+  z-index: -1;
+}
+
+/* Animaciones */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  animation: shine 3s infinite;
+  background: linear-gradient(90deg, #ffbdf5, #ffffff, #ffbdf5);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.main-img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.main-img:hover {
+  transform: scale(1.05);
+}
+
+/* Secciones */
+section {
+  padding: 2rem 1rem;
+  text-align: center;
+  margin: 1rem auto;
+  max-width: 700px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+/* Imágenes internas */
+.content-img {
+  width: 90%;
+  max-width: 500px;
+  border-radius: 20px;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.content-img:hover {
+  transform: scale(1.05);
+}
+
+/* Texto Profesional */
+.texto-profesional {
+  background: rgba(26, 26, 26, 0.8);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.03);
+}
+
+.texto-profesional h2,
+.texto-profesional h3 {
+  color: #ffbdf5;
+}
+
+.texto-profesional ul {
+  text-align: left;
+  max-width: 500px;
+  margin: auto;
+}
+
+/* CTA */
+.cta {
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.whatsapp-btn {
+  background: #25D366;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+  background: #1ebd5a;
+  box-shadow: 0 0 35px rgba(37, 211, 102, 0.7);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 2rem;
+}
+
+/* Video flotante */
+.video-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 250px;
+  max-width: 90vw;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.video-flotante video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .video-flotante {
+    display: none;
+  }
+}
+
+/* Animación de aparición al hacer scroll */
+.fade-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animación partículas (estrellas moviéndose) */
+.particles {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3;
+  background: transparent;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.15;
+  animation-name: float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
